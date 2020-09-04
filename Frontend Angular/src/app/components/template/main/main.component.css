@@ -1,0 +1,64 @@
+.btn{
+    cursor: pointer;
+    display: flex;
+    font-weight: lighter;
+
+}
+.side-nav{
+    background-color: #eff3f5;
+    width:200px;
+    border-right:5px solid #ffffffa1;
+    border-top:5px solid #ffffffc9;
+    border-top-right-radius: 25px;
+    box-shadow: 
+        2px 2px 6px #f6f6fcbe inset,
+        -6px -6px 6px #daddd8a1  inset;
+}
+.content{
+    background-color: #EEF0F2;
+    display: flex;
+}
+.menu-icon{
+    font-size: 60px;
+}
+.content__box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.content__card{
+    margin: 20px;
+    background-color: #FAFAFF;
+    width:650px;
+    height:545px;
+    border-radius: 25px;
+    border:2px solid #ffffffc9;
+    box-shadow: 
+        3px 3px 6px #daddd8a1,
+        -3px -3px 6px #f6f6fcbe
+    ;
+
+}
+.content__card-sm{
+    width:220px;
+    height:220px;
+    padding:20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.font-lg{
+    font-size: 9em;
+    font-weight: lighter;
+    margin:0 20px;
+}
+.font-md{
+    font-size: 1.5em;
+    font-weight: lighter;
+    
+}
+
+.column{
+    flex-direction: column;
+}
+

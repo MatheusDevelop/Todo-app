@@ -1,0 +1,16 @@
+.tittle{
+    font-size: 1rem;
+    font-weight: lighter;
+    margin-right: 10px;
+    
+}
+footer{
+    position: fixed;    
+    bottom: 0;
+    width: 100%;
+    
+}
+footer .tool{
+    display: flex;
+    justify-content: flex-end;
+}

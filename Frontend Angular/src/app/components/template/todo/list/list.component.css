@@ -1,0 +1,46 @@
+.tittle{
+    padding: 20px;
+    font-size: 3em;
+    color: #C6C5B9;
+    font-weight: 100;
+}
+
+.todo-card{
+
+    background-color: #f9fcfd;
+    width:95%;
+    margin: 10px auto;
+    height:70px;
+    border:2px solid #ffffff;
+    border-radius: 7px;
+    border-top-right-radius: 5px;
+    box-shadow: 
+        2px 2px 6px #c1c1c452 ,
+        -2px -2px 6px #eceeeb80;
+
+}
+.app-bar{
+    display: flex;
+    justify-content: center;
+}
+.add,.remove{
+    cursor: pointer;
+    font-size: 30px;    
+    transition: all .3s linear;
+    color:black;
+}
+.add:hover{   
+    color: rgba(47, 214, 103, 0.445);   
+}
+.remove:hover{
+    color:rgba(216, 42, 42, 0.562);
+}
+#form{
+    width:100%;
+    background-color: #f9fcfd;
+    box-shadow: 
+        2px 2px 6px #c1c1c452 inset,
+        -2px -2px 6px #eceeeb80 inset;
+    height:0px;
+    transition: all .3s ease-in-out;
+}
