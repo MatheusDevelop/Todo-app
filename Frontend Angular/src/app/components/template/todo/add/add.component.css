@@ -21,10 +21,12 @@
         2px 2px 6px #c1c1c452 inset,
         -2px -2px 6px #eceeeb80 inset;
     height:0px;
-    transition: all .3s ease-in-out;
+    transition: all 1.5s ease;
+    
 }
 #inputs{
-    
+    opacity: 0;
+    transition:all 2s linear;
     display: none;
 }
 .tittle{

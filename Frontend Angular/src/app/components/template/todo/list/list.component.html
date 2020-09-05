@@ -3,7 +3,19 @@
 </div>
 
 <app-add></app-add>
+<div class="todo_box">
 
-<div class="todo-card" *ngFor="let item of arr">
-    {{item.tarefa}}
+    <div class="todo-card" *ngFor="let item of arr">
+        <div>
+            <mat-checkbox class="margin"></mat-checkbox>
+        </div>
+        <div>
+            <div class="subtitle">
+                {{item.tarefa}}
+            </div>
+            <div class="datasub">
+                Dec 25, 08:00
+            </div>
+        </div>
+    </div>
 </div>

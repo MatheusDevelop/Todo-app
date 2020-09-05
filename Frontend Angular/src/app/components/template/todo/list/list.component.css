@@ -3,14 +3,30 @@
     font-size: 3em;
     color: #C6C5B9;
     font-weight: 100;
+    animation: fade .3s ease;
 }
-
+.margin{
+    margin:5px;
+}
+.fadeIn{
+    animation: fade 2s ease;
+}
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 .todo-card{
-
+    display: flex;
+    padding:10px 5px;
     background-color: #f9fcfd;
     width:95%;
     margin: 10px auto;
     height:70px;
+    max-height: 100%;
     border:2px solid #ffffff;
     border-radius: 7px;
     border-top-right-radius: 5px;
@@ -18,5 +34,24 @@
         2px 2px 6px #c1c1c452 ,
         -2px -2px 6px #eceeeb80;
 
+}
+.subtitle{
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color:rgba(48, 47, 47, 0.774);
+    border-left: 3px solid rgb(248, 248, 248);
+    padding-left: 5px;
+    text-shadow: -2px 2px 2px #eceeeb70;
+
+}
+.datasub{
+    font-size: .8em;
+    letter-spacing: 1.3px;
+    font-weight: normal;
+    color:rgba(82, 81, 81, 0.774);
+    border-left: 3px solid rgb(248, 248, 248);
+    padding-left: 5px;
+    text-shadow: -2px 2px 2px #eceeeb70; 
 }
 

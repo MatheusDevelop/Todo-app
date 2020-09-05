@@ -19,7 +19,7 @@ import { ListComponent } from './components/template/todo/list/list.component';
 import { AddComponent } from './components/template/todo/add/add.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +43,8 @@ import {MatInputModule} from '@angular/material/input';
     MatListModule,
     HttpClientModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

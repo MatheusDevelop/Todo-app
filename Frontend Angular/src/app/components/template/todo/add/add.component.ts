@@ -21,32 +21,38 @@ export class AddComponent implements OnInit {
   hide=true;
   hideButton=true;
 
-
+  // Animação de abrir e fechar o formulario para adicionar uma tarefa
   handleFormToggle(){
     let el= document.getElementById("form")
     let inputs = document.getElementById('inputs')
     if(el.style.height =='300px'){
       this.hide=true;
+
       inputs.style.display='none';
+      inputs.style.opacity="0";      
       el.style.height='0px';
     }else{
-      this.hide=false;
+      this.hide=false;     
       inputs.style.display='block';
+
+
+      setTimeout(() => {
+        inputs.style.opacity="1";
+      },300); 
+      
+
       el.style.height='300px';
       el.style.maxHeight="100%";
     }
   }
 
+
+
+  // Envia a formação dos formularios para o service, e do service se conecta com o back-end
   pushToDatabase(){
     if(!this.hideButton){
-
-      console.log(this.inputNameTask);
-      console.log(this.inputDate);
-
-
       this.inputDate=""
       this.inputNameTask=""
-
       // conectado ao service
       this.service.showMsg();
 
@@ -56,7 +62,7 @@ export class AddComponent implements OnInit {
 
   }
 
-
+  // Mostra ou oculta o botão para salvar uma tarefa
   verificarCampos(){
     
     if(this.inputNameTask.length>0 && this.inputDate.length>0){
