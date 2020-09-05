@@ -4,12 +4,6 @@
 
 <app-add></app-add>
 
-<div class="todo-card">
-
-</div>
-<div class="todo-card">
-
-</div>
-<div class="todo-card">
-
+<div class="todo-card" *ngFor="let item of arr">
+    {{item.tarefa}}
 </div>

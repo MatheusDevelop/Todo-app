@@ -17,7 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { TodoComponent } from './view/todo/todo.component';
 import { ListComponent } from './components/template/todo/list/list.component';
 import { AddComponent } from './components/template/todo/add/add.component';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,8 @@ import { AddComponent } from './components/template/todo/add/add.component';
     AddComponent,
     
     
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,9 @@ import { AddComponent } from './components/template/todo/add/add.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

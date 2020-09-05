@@ -1,0 +1,82 @@
+.app-bar{
+    display: flex;
+    justify-content: center;
+}
+.add,.remove{
+    cursor: pointer;
+    font-size: 30px;    
+    transition: all .3s linear;
+    color:black;
+}
+.add:hover{   
+    color: rgba(47, 214, 103, 0.445);   
+}
+.remove:hover{
+    color:rgba(216, 42, 42, 0.562);
+}
+#form{
+    width:100%;
+    background-color: #f9fcfd;
+    box-shadow: 
+        2px 2px 6px #c1c1c452 inset,
+        -2px -2px 6px #eceeeb80 inset;
+    height:0px;
+    transition: all .3s ease-in-out;
+}
+#inputs{
+    
+    display: none;
+}
+.tittle{
+    border-left: 2px solid #dd1d1688 ;
+    font-size: 2em;
+    padding:20px;
+    color: #dd1d1688;
+    font-weight: bolder;
+    text-shadow: -2px 2px 2px #eceeeb80;
+    margin-bottom: 10px;
+}
+.subtitle{
+    text-shadow: -2px 2px 2px #eceeeb80;
+    
+    font-size: 1em;
+    margin-left: 21px;
+    font-weight: normal;
+}
+.input_task{
+    margin:5px 20px;    
+}
+
+button{
+    margin-left: 50px;
+}
+.input_task input{
+    color:rgba(48, 47, 47, 0.774);
+    font-weight: bold;
+    border:0;
+    margin:5px 20px;
+    border:2px solid #ffffff;
+    border-radius: 15px;
+    border-left-color: #dd1d1688;
+    box-shadow: 
+        2px 2px 6px #c1c1c452 inset,
+        -2px -2px 6px #eceeeb80 inset;
+    padding:20px 5px;
+    background-color:#dd1d160c ;
+    transition:all .5s linear;
+   
+    
+}
+.input_task input:hover,.input_task input:focus{
+    box-shadow: 
+        1px 1px 6px #c1c1c452,
+        -1px -1px 6px #eceeeb80;
+    border-left-color: #e26e6a88;
+    background-color:#dd1d1600 ;
+    outline:0;
+}
+
+.iconad {
+    color:white;
+
+}
