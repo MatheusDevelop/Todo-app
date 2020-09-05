@@ -16,7 +16,7 @@
            <div class="subtitle">
                 Concluir até:
            </div>
-            <input type="datetime-local" id="datetime" (keyup)="verificarCampos()" (click)="verificarCampos()" [value]="inputDate" (input)="inputDate=$event.target.value">
+            <input type="datetime-local" step="1" id="datetime" (keyup)="verificarCampos()" (click)="verificarCampos()" [value]="inputDate" (input)="inputDate=$event.target.value">
             
        </div>
        

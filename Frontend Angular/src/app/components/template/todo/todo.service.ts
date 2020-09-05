@@ -1,16 +1,23 @@
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Todo} from './../todo'
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
 
-  constructor() { }
+  //API CONSUMIDA
+  urlApi="https://localhost:44345/api/tasks/";
 
+  constructor(private http:HttpClient) { }
 
-  showMsg(){
-    console.log("Conectado com o service")
+  addToDatabase(task: Todo):Observable<Todo>{		
+    return this.http.post<Todo> (this.urlApi,task);
   }
-
+  
+  
 
 }
