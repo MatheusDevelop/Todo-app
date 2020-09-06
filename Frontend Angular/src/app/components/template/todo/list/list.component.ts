@@ -1,31 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { TodoService } from './../todo.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Todo} from './../../todo'
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit{
 
-  constructor() { }
+  constructor(private service: TodoService) { }
 
-  json='[{"tarefa":"Fazer tal coisa","dataUtc":"Data"},{"tarefa":"Fazer tal coisa2","dataUtc":"Data"},{"tarefa":"Fazer tal coisa3","dataUtc":"Data"},{"tarefa":"Fazer tal coisa4","dataUtc":"Data"}]' 
-  arr=[];
+  arr:Todo[];
+
+  @Output() mostrarLength = new EventEmitter();
+
+
   ngOnInit(): void {
-    this.jsonToClassArray(this.json)
-  }
+    this.service.readAll().subscribe(tasks=>{
 
-
-  jsonToClassArray(json){
-    let obj=JSON.parse(json);
-    let newArr=[]
-
-    obj.forEach(element => {
-      let todo=new Todo(element.tarefa,element.dataUtc);
-      this.arr.push(todo)      
-    });    
+        this.arr=tasks; 
+        
+        this.mostrarLength.emit(this.arr.length);
+      });
     
   }
+
+
+  
+  
+  
+
+
+ 
+    
+  
 
   
 }

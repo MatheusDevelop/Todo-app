@@ -32,7 +32,7 @@ namespace API_Todo.Repositories
         {
             cmd.Connection = con.Connect();
             cmd.CommandText =
-                "DELETE FROM Tasks" +
+                "DELETE FROM Tasks " +
                 "WHERE id_tarefa = @id";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();

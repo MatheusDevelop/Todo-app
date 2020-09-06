@@ -21,6 +21,7 @@
 }
 .todo-card{
     display: flex;
+    justify-content: space-between;
     padding:10px 5px;
     background-color: #f9fcfd;
     width:95%;
@@ -55,3 +56,11 @@
     text-shadow: -2px 2px 2px #eceeeb70; 
 }
 
+.todo_tasks{
+    display: flex;
+    
+}
+.buttons{
+    display: flex;
+    align-items: center;
+}

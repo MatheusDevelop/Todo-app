@@ -1,21 +1,29 @@
 <div class="tittle">
-    Hoje
+    Tarefas
 </div>
 
-<app-add></app-add>
+<app-add (novoObj)="ngOnInit()"></app-add>
 <div class="todo_box">
 
     <div class="todo-card" *ngFor="let item of arr">
-        <div>
-            <mat-checkbox class="margin"></mat-checkbox>
+        <div class="todo_tasks">
+            <div>
+                <mat-checkbox class="margin"></mat-checkbox>
+            </div>
+            <div>
+                
+                <div class="subtitle">
+                    {{item.tarefa}}
+                </div>
+                <div class="datasub">
+                    {{item.dataUtc}}<br/>
+                    {{item.id_tarefa}}
+                </div>
+            </div>
         </div>
-        <div>
-            <div class="subtitle">
-                {{item.tarefa}}
-            </div>
-            <div class="datasub">
-                Dec 25, 08:00
-            </div>
+        <div class="buttons">
+            <app-remove [array]="arr" [id_t]="item.id_tarefa"></app-remove>
+            <app-update></app-update>
         </div>
     </div>
 </div>

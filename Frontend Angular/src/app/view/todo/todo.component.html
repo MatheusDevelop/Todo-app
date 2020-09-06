@@ -2,24 +2,22 @@
 <div class="content__box">
     <div class="content__card content-overflow">
         
-        <app-list></app-list>
+        <app-list (mostrarLength)="onMostrarLength($event)"></app-list>
         
     </div>
     <div class="context_box column">
         <div class="content__card content__card-sm card-red">
             <div class="align font-lg">
-                4
+                {{length}}
             </div>
             <div class="align font-md">
-                Tarefas restantes                    
+                   Tarefas restantes                
             </div>
         </div>
         <div class="content__card content__card-sm">
             <div class="font-md">
-                Proxima tarefa
-                <div>
-                    x
-                </div>
+               
+                
             </div> 
         </div>
     </div>

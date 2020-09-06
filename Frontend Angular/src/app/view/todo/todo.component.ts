@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { TodoService } from 'src/app/components/template/todo/todo.service';
+import { Todo } from 'src/app/components/template/todo';
 
 @Component({
   selector: 'app-todo',
@@ -7,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: TodoService) { }
 
-  ngOnInit(): void {
-    
+ 
+  length=0;
+  ngOnInit(): void { 
+   
   }
-  
+  onMostrarLength(e){
+    this.length=e;
+  }
 
   
 }

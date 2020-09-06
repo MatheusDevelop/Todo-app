@@ -1,4 +1,4 @@
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Todo} from './../todo'
 import { Observable } from 'rxjs';
@@ -16,6 +16,15 @@ export class TodoService {
 
   addToDatabase(task: Todo):Observable<Todo>{		
     return this.http.post<Todo> (this.urlApi,task);
+  }
+  
+
+  readAll(): Observable<Todo[]>{        
+      return this.http.get<Todo[]>(this.urlApi);      
+  }
+
+  delete(id:string):Observable<Todo>{    
+    return this.http.delete<Todo>(this.urlApi+id);    
   }
   
   

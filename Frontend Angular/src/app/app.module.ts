@@ -21,6 +21,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { RemoveComponent } from './components/template/todo/remove/remove.component';
+import { UpdateComponent } from './components/template/todo/update/update.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     TodoComponent,
     ListComponent,
     AddComponent,
+    RemoveComponent,
+    UpdateComponent,
     
     
     

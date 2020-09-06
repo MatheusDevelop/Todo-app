@@ -10,13 +10,13 @@
            <div class="subtitle">
                 Nome da tarefa:  
            </div>
-            <input type="text" id="task_name" (keyup)="verificarCampos()" [value]="inputNameTask" (input)="inputNameTask=$event.target.value" autofocus placeholder="ex: Meditar, ler um livro...">
+            <input autocomplete="off" autofocus type="text" id="task_name" (keyup)="verificarCampos()" [value]="inputNameTask" (input)="inputNameTask=$event.target.value" autofocus placeholder="ex: Meditar, ler um livro...">
        </div>
        <div  class="input_task">
            <div class="subtitle">
                 Concluir até:
            </div>
-            <input type="datetime-local" step="1" id="datetime" (keyup)="verificarCampos()" (click)="verificarCampos()" [value]="inputDate" (input)="inputDate=$event.target.value">
+            <input autocomplete="off" type="datetime-local" step="1" id="datetime" (keyup)="verificarCampos()" (click)="verificarCampos()" [value]="inputDate" (input)="inputDate=$event.target.value">
             
        </div>
        

@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {TodoService} from './../todo.service'
 import {MatSnackBar} from '@angular/material/snack-bar'
 import {Todo} from './../../todo'
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
+
 export class AddComponent implements OnInit {
 
-  constructor(private service:TodoService,private snack:MatSnackBar) { }
+  constructor(private service:TodoService,private snack:MatSnackBar,private rota:Router) { }
 
   ngOnInit(): void {
   }
@@ -52,30 +55,40 @@ export class AddComponent implements OnInit {
     this.inputNameTask=""
   }
 
+  @Output() novoObj = new EventEmitter;
+  idTemp=0;
   // Envia os dados dos formularios para o service, e do service se conecta com o back-end
   pushToDatabase(){
     if(!this.hideButton){
-
+      let tarefa = new Todo(this.idTemp,this.inputNameTask,this.inputDate);
       
-
-      let tarefa = new Todo(this.inputNameTask,this.inputDate);
-     
+      
       //conectado ao service
       this.service.addToDatabase(tarefa).subscribe(()=>{
-        this.snack.open("Tarefa adicionada",'X',{
-          duration:2000,
-          horizontalPosition:"left",
-          verticalPosition:'top'
-        })
-      },()=>{       
-        this.snack.open("Erro ao adicionar a tarefa, favor tente mais tarde",'x',{duration:3000});        
+        this.mostrarSnack('Adicionado com sucesso')
+        this.novoObj.emit();
+        
+      },()=>{ 
+            
+        this.mostrarSnack('Erro ao adicionar')    
       });
+      
+      
       this.limparInputs();
       
     }
 
+
   }
  
+  mostrarSnack(msg){
+    this.snack.open(msg,'x',{
+      duration:2000,
+      horizontalPosition:"left",
+      verticalPosition:'top'
+    })
+  }
+
 
   // Mostra ou oculta o botão para salvar uma tarefa
   verificarCampos(){
