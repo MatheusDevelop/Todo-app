@@ -55,7 +55,8 @@ export class AddComponent implements OnInit {
     this.inputNameTask=""
   }
 
-  @Output() novoObj = new EventEmitter;
+  @Output() novoObj = new EventEmitter
+
   idTemp=0;
   // Envia os dados dos formularios para o service, e do service se conecta com o back-end
   pushToDatabase(){

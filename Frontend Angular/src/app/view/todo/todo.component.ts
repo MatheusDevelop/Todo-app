@@ -11,7 +11,7 @@ export class TodoComponent implements OnInit {
 
   constructor(private service: TodoService) { }
 
- 
+  
   length=0;
   ngOnInit(): void { 
    
@@ -20,5 +20,6 @@ export class TodoComponent implements OnInit {
     this.length=e;
   }
 
+  
   
 }

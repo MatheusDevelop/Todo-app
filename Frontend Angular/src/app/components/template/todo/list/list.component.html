@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="buttons">
-            <app-remove [array]="arr" [id_t]="item.id_tarefa"></app-remove>
+            <app-remove (remObj)="onChangeLength($event)" [array]="arr" [id_t]="item.id_tarefa"></app-remove>
             <app-update></app-update>
         </div>
     </div>
