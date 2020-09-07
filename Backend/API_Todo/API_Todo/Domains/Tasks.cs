@@ -10,5 +10,6 @@ namespace API_Todo.Domains
         public int id_tarefa { get; set; }
         public string tarefa { get; set; }
         public string dataUtc { get; set; }
+        public int Checked { get; set; }
     }
 }

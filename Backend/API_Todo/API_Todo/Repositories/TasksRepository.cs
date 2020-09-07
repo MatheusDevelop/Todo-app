@@ -19,10 +19,11 @@ namespace API_Todo.Repositories
         {
             cmd.Connection = con.Connect();
             cmd.CommandText =
-                "INSERT INTO Tasks(tarefa,dataUtc)" +
-                "VALUES(@tarefa,@dataUtc)";
+                "INSERT INTO Tasks(tarefa,dataUtc,checked)" +
+                "VALUES(@tarefa,@dataUtc,@Checked)";
             cmd.Parameters.AddWithValue("@tarefa", t.tarefa);
             cmd.Parameters.AddWithValue("@dataUtc", t.dataUtc);
+            cmd.Parameters.AddWithValue("@Checked", t.Checked);
             cmd.ExecuteNonQuery();
             con.Desconnect();
 
@@ -56,7 +57,8 @@ namespace API_Todo.Repositories
                     {
                         id_tarefa=Convert.ToInt32(data.GetValue(0)),
                         tarefa=Convert.ToString(data.GetValue(1)),
-                        dataUtc=Convert.ToString(data.GetValue(2))
+                        dataUtc=Convert.ToString(data.GetValue(2)),
+                        Checked=Convert.ToInt32(data.GetValue(3))
                     }
                  );
             }
@@ -72,12 +74,15 @@ namespace API_Todo.Repositories
             cmd.Connection = con.Connect();
             cmd.CommandText =
                 "UPDATE Tasks SET " +
-                "tarefa = @tarefa ," +
-                "dataUtc = @dataUtc" +
+                "tarefa = @tarefa , " +
+                "dataUtc = @dataUtc , " +
+                "checked = @Checked " +
                 "WHERE id_tarefa = @id";
             cmd.Parameters.AddWithValue("tarefa", newTarefa.tarefa);
             cmd.Parameters.AddWithValue("dataUtc", newTarefa.dataUtc);
             cmd.Parameters.AddWithValue("id_tarefa", newTarefa.id_tarefa);
+            cmd.Parameters.AddWithValue("Checked", newTarefa.Checked);
+            cmd.Parameters.AddWithValue("id", id);
             cmd.ExecuteNonQuery();
             con.Desconnect();
         }

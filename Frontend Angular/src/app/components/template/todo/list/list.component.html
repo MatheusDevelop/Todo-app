@@ -7,23 +7,34 @@
 
     <div class="todo-card" *ngFor="let item of arr">
         <div class="todo_tasks">
-            <div>
+            <div *ngIf="item.checked==0">
                 <mat-checkbox class="margin"></mat-checkbox>
             </div>
+            <div *ngIf="item.checked==1">
+                <mat-checkbox class="margin" checked="true" (click)="update()"></mat-checkbox>
+            </div>
             <div>
-                
                 <div class="subtitle">
-                    {{item.tarefa}}
+                    <div *ngIf="showUpdateInputs">
+                        <input type="text" [placeholder]="item.tarefa" (keyup)="newTask($event)">
+                    </div> 
+                    <div *ngIf="!showUpdateInputs">
+                        {{item.tarefa}}
+                    </div> 
+
+
                 </div>
-                <div class="datasub">
-                    {{item.dataUtc}}<br/>
-                    {{item.id_tarefa}}
+                <div class="datasub">                   
+                    {{item.dataUtc}}  
+                    {{item.id_tarefa}}                  
+                    <br/>
+                    Description
                 </div>
             </div>
         </div>
         <div class="buttons">
             <app-remove (remObj)="onChangeLength($event)" [array]="arr" [id_t]="item.id_tarefa"></app-remove>
-            <app-update></app-update>
+            <app-update (novoObj)="ngOnInit()" [newT]='newTaskUpdate' [id_t]="item.id_tarefa"></app-update>
         </div>
     </div>
 </div>

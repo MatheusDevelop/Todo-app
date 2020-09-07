@@ -16,10 +16,17 @@
            <div class="subtitle">
                 Concluir até:
            </div>
+            <div class="box-set">
+                <div (click)="setData()">
+                    <button mat-button color="warn">Hoje</button>
+                </div>
+                <div (click)="setData(true)">
+                    <button mat-button color="warn">Amanha</button>
+                </div>
+            </div>
             <input autocomplete="off" type="datetime-local" step="1" id="datetime" (keyup)="verificarCampos()" (click)="verificarCampos()" [value]="inputDate" (input)="inputDate=$event.target.value">
             
        </div>
-       
        <div (mouseenter)="verificarCampos()" (click)="pushToDatabase()">
            <button id="buttonAdd" mat-fab color="warn" [disabled]="hideButton" aria-label="add icon">
                <i class=" iconad material-icons">
@@ -27,6 +34,7 @@
                 </i>
             </button>
         </div>
+       
             
     </div>    
 </div>

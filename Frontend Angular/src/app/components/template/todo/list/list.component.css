@@ -64,3 +64,28 @@
     display: flex;
     align-items: center;
 }
+
+.subtitle input{
+    color:rgba(48, 47, 47, 0.774);
+    font-weight: bold;
+    border:0;
+  
+    border:2px solid #ffffff;
+    border-radius: 15px;
+    border-left-color: #dd1d1688;
+    box-shadow: 
+        2px 2px 6px #c1c1c452 inset,
+        -2px -2px 6px #eceeeb80 inset;
+    padding:5px;
+    background-color:#dddbdb31 ;
+    transition:all .5s linear;
+
+}
+.subtitle input:hover,.subtitle input:focus{
+    box-shadow: 
+        1px 1px 6px #c1c1c452,
+        -1px -1px 6px #eceeeb80;
+    border-left-color: #e26e6a88;
+    background-color:#dd1d1600 ;
+    outline:0;
+}

@@ -29,12 +29,13 @@ export class AddComponent implements OnInit {
   handleFormToggle(){
     let el= document.getElementById("form")
     let inputs = document.getElementById('inputs')
-    if(el.style.height =='300px'){
+    if(el.style.height >'0px'){
       this.hide=true;
 
       inputs.style.display='none';
       inputs.style.opacity="0";      
       el.style.height='0px';
+    
     }else{
       this.hide=false;     
       inputs.style.display='block';
@@ -45,8 +46,8 @@ export class AddComponent implements OnInit {
       },300); 
       
 
-      el.style.height='300px';
-      el.style.maxHeight="100%";
+      el.style.height='100%';
+      el.style.maxHeight="400px";
     }
   }
 
@@ -66,29 +67,24 @@ export class AddComponent implements OnInit {
       
       //conectado ao service
       this.service.addToDatabase(tarefa).subscribe(()=>{
-        this.mostrarSnack('Adicionado com sucesso')
+        this.service.showSnackbar('Tarefa adicionada');
         this.novoObj.emit();
-        
+        this.handleFormToggle();
       },()=>{ 
             
-        this.mostrarSnack('Erro ao adicionar')    
+        this.service.showSnackbar('Erro ao adicionar tarefa, tente novamente');  
       });
       
       
       this.limparInputs();
+      
       
     }
 
 
   }
  
-  mostrarSnack(msg){
-    this.snack.open(msg,'x',{
-      duration:2000,
-      horizontalPosition:"left",
-      verticalPosition:'top'
-    })
-  }
+  
 
 
   // Mostra ou oculta o botão para salvar uma tarefa
@@ -102,6 +98,16 @@ export class AddComponent implements OnInit {
     
   }
 
+  setData(tomorrow=false){
+    if(tomorrow){
+      this.inputDate = this.service.DateForObjs().stringForInputs.tomorrow;
+
+    }else{
+      this.inputDate = this.service.DateForObjs().stringForInputs.today;
+
+    }  
+    
+  }
 
 
 

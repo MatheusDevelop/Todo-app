@@ -23,7 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RemoveComponent } from './components/template/todo/remove/remove.component';
 import { UpdateComponent } from './components/template/todo/update/update.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,10 +51,13 @@ import { UpdateComponent } from './components/template/todo/update/update.compon
     MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatFormFieldModule
     
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
