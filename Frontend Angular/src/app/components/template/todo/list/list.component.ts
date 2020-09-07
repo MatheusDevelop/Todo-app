@@ -22,17 +22,51 @@ export class ListComponent implements OnInit{
     this.service.readAll().subscribe(tasks=>{
         this.arr=tasks;         
         this.mostrarLength.emit(this.arr.length);        
-      });     
+      });  
+      
   }
-  showUpdateInputs=true;
+
+
+
+
+
   newTask(event){
     let newTitle =event.target.value;
     let newTask = new Todo(0,newTitle,'2020-05-05T00:00:00',1) 
     this.newTaskUpdate=newTask;
-    console.log(this.newTaskUpdate);
   }
   
+  handleInputToggle(id,close=false){
+    
+    if(close){
+      this.arr.forEach(element => {
+        
+        if(element.id_tarefa == id){
+          
+          element.showUpdateInputs=false;
+          
+        }else{
+          
+          return
+        }
+        
+      });
+    }else{
 
+      this.arr.forEach(element => {
+        
+        if(element.id_tarefa == id){
+          
+          element.showUpdateInputs=true;
+          
+        }else{
+          element.showUpdateInputs=false;
+          return
+        }
+        
+      });
+    }
+  }
 
 
   onChangeLength(evento){     
@@ -40,7 +74,18 @@ export class ListComponent implements OnInit{
   }  
 
   
-  update(){
-    console.log('atualizar no db')
+  update(checkbox=false,id,tarefa,dataUtc){
+    if(checkbox){
+      let task = new Todo(0,tarefa,dataUtc,0);      
+      this.service.updateFromDatabase(id,task).subscribe(()=>{
+        this.ngOnInit();
+      })
+    }else{
+      let task = new Todo(0,tarefa,dataUtc,1);      
+      this.service.updateFromDatabase(id,task).subscribe(()=>{
+        this.ngOnInit();
+
+      })
+    }
   }
 }

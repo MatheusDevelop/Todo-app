@@ -7,34 +7,50 @@
 
     <div class="todo-card" *ngFor="let item of arr">
         <div class="todo_tasks">
-            <div *ngIf="item.checked==0">
+            <div *ngIf="item.checked==0" (click)="update(false,item.id_tarefa,item.tarefa,item.dataUtc)">
                 <mat-checkbox class="margin"></mat-checkbox>
             </div>
             <div *ngIf="item.checked==1">
-                <mat-checkbox class="margin" checked="true" (click)="update()"></mat-checkbox>
+                <mat-checkbox class="margin" autofocus checked="true" (click)="update(true,item.id_tarefa,item.tarefa,item.dataUtc)"></mat-checkbox>
             </div>
             <div>
                 <div class="subtitle">
-                    <div *ngIf="showUpdateInputs">
-                        <input type="text" [placeholder]="item.tarefa" (keyup)="newTask($event)">
+                    <div *ngIf="item.showUpdateInputs">
+                       
+                        <input type="text" maxlength="20" [value]="item.tarefa" (keyup)="newTask($event)"><br/>                        
+                        <input type="datetime-local" maxlength="20" [value]="item.dataUtc" (keyup)="newTask($event)"><br/>
+                        
                     </div> 
-                    <div *ngIf="!showUpdateInputs">
+                    <div *ngIf="!item.showUpdateInputs">
                         {{item.tarefa}}
                     </div> 
 
 
                 </div>
-                <div class="datasub">                   
+                <div class="datasub" *ngIf="!item.showUpdateInputs">                   
                     {{item.dataUtc}}  
-                    {{item.id_tarefa}}                  
+                                      
                     <br/>
                     Description
                 </div>
             </div>
         </div>
         <div class="buttons">
+
+            <button mat-icon-button *ngIf="!item.showUpdateInputs" color="warn" (click)="handleInputToggle(item.id_tarefa)">      <i class="material-icons">
+                    
+                    open_in_new
+                </i>
+            </button>
+
+            <button mat-icon-button *ngIf="item.showUpdateInputs" color="warn" (click)="handleInputToggle(item.id_tarefa,true)">
+                <i class="material-icons">
+                    
+                    close
+                </i>
+            </button>
+            <app-update *ngIf="item.showUpdateInputs" (novoObj)="ngOnInit()" [newT]='newTaskUpdate' [id_t]="item.id_tarefa"></app-update>
             <app-remove (remObj)="onChangeLength($event)" [array]="arr" [id_t]="item.id_tarefa"></app-remove>
-            <app-update (novoObj)="ngOnInit()" [newT]='newTaskUpdate' [id_t]="item.id_tarefa"></app-update>
         </div>
     </div>
 </div>

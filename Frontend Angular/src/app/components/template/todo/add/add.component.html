@@ -10,7 +10,7 @@
            <div class="subtitle">
                 Nome da tarefa:  
            </div>
-            <input autocomplete="off" autofocus type="text" id="task_name" (keyup)="verificarCampos()" [value]="inputNameTask" (input)="inputNameTask=$event.target.value" autofocus placeholder="ex: Meditar, ler um livro...">
+            <input autocomplete="off" maxlength="20" autofocus type="text" id="task_name" (keyup)="verificarCampos()" [value]="inputNameTask" (input)="inputNameTask=$event.target.value" autofocus placeholder="ex: Meditar, ler um livro...">
        </div>
        <div  class="input_task">
            <div class="subtitle">

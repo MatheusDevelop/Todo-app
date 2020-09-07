@@ -14,6 +14,7 @@ export class UpdateComponent implements OnInit {
   
   @Input() id_t;
   @Input() newT;
+  @Input() close:any;
   
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class UpdateComponent implements OnInit {
     this.service.updateFromDatabase(id,newTask).subscribe(()=>{
       this.service.showSnackbar("Tarefa alterada")
       this.novoObj.emit();
+      
     },()=>{
       this.service.showSnackbar("Erro ao alterar tarefa, favor tente mais tarde")
 
