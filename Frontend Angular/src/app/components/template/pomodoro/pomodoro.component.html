@@ -1,12 +1,26 @@
 <div class="pomodoro-text">
                 
-    {{leftMinutes}}min
+    {{leftMinutes}}min e {{leftSecounds}}s
     
 </div> 
-<div>
-    <button mat-fab color="warn" aria-label="add icon" (click)="pomodoroClock()">
+<div class="align" >
+
+    <button *ngIf="buttonStates==0" mat-fab color="warn" aria-label="add icon" (click)="pomodoroClock()">
         <i class=" iconad material-icons">
             play_arrow
         </i>
-     </button>
+    </button>
+    <button *ngIf="buttonStates==1" mat-fab color="warn" aria-label="add icon" (click)="stopClock()">
+        <i class=" iconad material-icons">
+            pause
+        </i>
+    </button>
+    <div class="margin">
+        <button *ngIf="buttonStates==2"mat-icon-button color="warn" (click)="restoreClock()">
+            <audio src=""></audio>
+            <i class=" restore material-icons">
+                restore
+            </i>
+        </button>
+    </div>
 </div>

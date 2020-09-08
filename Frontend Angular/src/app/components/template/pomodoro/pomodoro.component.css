@@ -6,3 +6,12 @@
 .iconad{
     color: white;
 }
+.align{
+    text-align: center;
+}
+.margin{
+    margin:10px 0px;
+}
+.restore{
+    color:rgba(173, 75, 75, 0.781);
+}
