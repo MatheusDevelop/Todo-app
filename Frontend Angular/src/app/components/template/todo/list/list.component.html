@@ -17,8 +17,8 @@
                 <div class="subtitle">
                     <div *ngIf="item.showUpdateInputs">
                        
-                        <input type="text" maxlength="20" [value]="item.tarefa" (keyup)="newTask($event)"><br/>                        
-                        <input type="datetime-local" maxlength="20" [value]="item.dataUtc" (keyup)="newTask($event)"><br/>
+                        <input type="text" maxlength="20" [value]="item.tarefa" (keyup)="newTask($event,item.checked)"><br/>                        
+                        <input type="datetime-local" maxlength="20" [value]="item.dataUtc" (change)="newTask($event,item.checked,false)"><br/>
                         
                     </div> 
                     <div *ngIf="!item.showUpdateInputs">
@@ -37,7 +37,8 @@
         </div>
         <div class="buttons">
 
-            <button mat-icon-button *ngIf="!item.showUpdateInputs" color="warn" (click)="handleInputToggle(item.id_tarefa)">      <i class="material-icons">
+            <button mat-icon-button *ngIf="!item.showUpdateInputs" color="warn" (click)="handleInputToggle(item.id_tarefa)">      
+                <i class="material-icons">
                     
                     open_in_new
                 </i>

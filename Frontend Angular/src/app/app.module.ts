@@ -24,6 +24,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RemoveComponent } from './components/template/todo/remove/remove.component';
 import { UpdateComponent } from './components/template/todo/update/update.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { PomodoroComponent } from './components/template/pomodoro/pomodoro.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AddComponent,
     RemoveComponent,
     UpdateComponent,
+    PomodoroComponent,
     
     
     

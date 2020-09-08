@@ -13,15 +13,32 @@ export class ListComponent implements OnInit{
   constructor(public service: TodoService) { }
 
   arr:Todo[];
-
+  
+  leftTasks=0;
   @Output() mostrarLength = new EventEmitter();
   
   newTaskUpdate:Todo;
 
   ngOnInit(): void {
     this.service.readAll().subscribe(tasks=>{
-        this.arr=tasks;         
-        this.mostrarLength.emit(this.arr.length);        
+        this.arr=tasks; 
+        this.leftTasks=0;
+
+
+
+        this.arr.forEach(element => {
+          if(element.checked == 1){
+            return
+          }else{
+            this.leftTasks++
+          }
+        });
+       
+        this.mostrarLength.emit(this.leftTasks);
+       
+        
+       
+               
       });  
       
   }
@@ -30,10 +47,9 @@ export class ListComponent implements OnInit{
 
 
 
-  newTask(event){
-    let newTitle =event.target.value;
-    let newTask = new Todo(0,newTitle,'2020-05-05T00:00:00',1) 
-    this.newTaskUpdate=newTask;
+  newTask(event,checked=0,text=true){
+    
+   //fazer Att    
   }
   
   handleInputToggle(id,close=false){
@@ -83,6 +99,7 @@ export class ListComponent implements OnInit{
     }else{
       let task = new Todo(0,tarefa,dataUtc,1);      
       this.service.updateFromDatabase(id,task).subscribe(()=>{
+        
         this.ngOnInit();
 
       })
