@@ -27,15 +27,7 @@ namespace API_Todo
         {
             services.AddControllers();
 
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(
-                    builder =>
-                    {
-                        builder.WithOrigins("http://example.com",
-                                            "http://www.contoso.com");
-                    });
-            });
+            services.AddCors();
 
         }
 
@@ -47,7 +39,7 @@ namespace API_Todo
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors();
+            app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
 

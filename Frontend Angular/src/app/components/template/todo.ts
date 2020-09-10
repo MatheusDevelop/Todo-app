@@ -13,9 +13,11 @@ export class Todo {
         this.showUpdateInputs=showUpdateInputs;
         this.checked=_checked;
         this.id_tarefa=_id_tarefa;
-        this.tarefa=_tarefa;
+        this.tarefa=_tarefa;         
         this.dataUtc=_dataUtc;
 
     }
+
+   
 
 }

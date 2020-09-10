@@ -64,8 +64,9 @@ export class AddComponent implements OnInit {
     if(!this.hideButton){
       let tarefa = new Todo(this.idTemp,this.inputNameTask,this.inputDate);
       
+      console.log(this.inputDate);
       
-      //conectado ao service
+      
       this.service.addToDatabase(tarefa).subscribe(()=>{
         this.service.showSnackbar('Tarefa adicionada');
         this.novoObj.emit();
@@ -100,10 +101,10 @@ export class AddComponent implements OnInit {
 
   setData(tomorrow=false){
     if(tomorrow){
-      this.inputDate = this.service.DateForObjs().stringForInputs.tomorrow;
+      this.inputDate=this.service.DateForObjs().stringForInputs.tomorrow
 
     }else{
-      this.inputDate = this.service.DateForObjs().stringForInputs.today;
+     this.inputDate=this.service.DateForObjs().stringForInputs.today
 
     }  
     

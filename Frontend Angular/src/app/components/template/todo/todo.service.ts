@@ -96,34 +96,28 @@ export class TodoService {
   DateForObjs(){
 
     let time = new Date();
-    let date = time.getUTCDate();
-    let mounth = time.getUTCMonth();
+    let date = time.getUTCDate().toString();
+    let mounth = time.getUTCMonth().toString();
     let year = time.getUTCFullYear();
     
+    if(parseInt(mounth)<=9){
+      mounth = `0${parseInt(mounth)+1}`
+    }
+    if(parseInt(date)<=9){
+      date = `0${date}`
+    }
     
-    let newDate = date.toString();
-    let tomorrow="";
-    if(date < 9 ){
-      newDate=`0${date}`;
-      tomorrow=`0${date+1}`
-      
-      
-    }
-
-    let newMounth = mounth.toString();
-    if(mounth < 9 ){
-      newMounth=`0${date}`;
-      mounth = parseInt(newMounth);
-     
-    }
+    let tomorrow = parseInt(date)+1;
+    
+    
 
 
 
     return{
       stringForInputs:
         {
-          today:`${year}-${newMounth}-${newDate}T00:00:00`,
-          tomorrow:`${year}-${newMounth}-${tomorrow}T00:00:00`
+          today:`${year}-${mounth}-${date}T00:00:00`,
+          tomorrow:`${year}-${mounth}-${tomorrow}T00:00:00`
         }
       
     }

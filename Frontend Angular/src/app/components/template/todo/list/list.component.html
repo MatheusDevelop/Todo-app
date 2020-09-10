@@ -17,8 +17,8 @@
                 <div class="subtitle">
                     <div *ngIf="item.showUpdateInputs">
                        
-                        <input type="text" maxlength="20" [value]="item.tarefa" (keyup)="newTask($event,item.checked)"><br/>                        
-                        <input type="datetime-local" maxlength="20" [value]="item.dataUtc" (change)="newTask($event,item.checked,false)"><br/>
+                        <input type="text" maxlength="20" [value]="item.tarefa" (keyup)="newTaskText($event)"><br/>                        
+                        <input type="datetime-local" step="1" maxlength="20" [(value)]="item.dataUtc" (change)="newTaskDate($event,item.tarefa,item.checked)"><br/>
                         
                     </div> 
                     <div *ngIf="!item.showUpdateInputs">
@@ -27,11 +27,13 @@
 
 
                 </div>
-                <div class="datasub" *ngIf="!item.showUpdateInputs">                   
-                    {{item.dataUtc}}  
+                <div class="datasub" *ngIf="!item.showUpdateInputs">  
+                    {{dateParser(item.dataUtc) | date}}                 
+                    {{dateParser(item.dataUtc) | date:'h:mm a'}}                 
+                    
                                       
                     <br/>
-                    Description
+                   
                 </div>
             </div>
         </div>
@@ -50,7 +52,7 @@
                     close
                 </i>
             </button>
-            <app-update *ngIf="item.showUpdateInputs" (novoObj)="ngOnInit()" [newT]='newTaskUpdate' [id_t]="item.id_tarefa"></app-update>
+            <app-update *ngIf="item.showUpdateInputs" [isValidate]='valid' (novoObj)="ngOnInit()" [newT]='newTaskUpdate' [id_t]="item.id_tarefa"></app-update>
             <app-remove (remObj)="onChangeLength($event)" [array]="arr" [id_t]="item.id_tarefa"></app-remove>
         </div>
     </div>

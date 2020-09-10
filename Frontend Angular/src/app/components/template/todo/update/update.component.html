@@ -1,4 +1,4 @@
-<button mat-icon-button color="warn" (click)="update(id_t,newT)">
+<button mat-icon-button color="warn" [disabled]='!isValidate' (click)="update(id_t,newT)">
     <i class="material-icons">
         
         add_task

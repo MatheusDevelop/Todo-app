@@ -14,7 +14,7 @@ export class UpdateComponent implements OnInit {
   
   @Input() id_t;
   @Input() newT;
-  @Input() close:any;
+  @Input() isValidate:any;
   
 
   ngOnInit(): void {

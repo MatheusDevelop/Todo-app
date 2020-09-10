@@ -45,12 +45,39 @@ export class ListComponent implements OnInit{
 
 
 
-
-
-  newTask(event,checked=0,text=true){
-    
-   //fazer Att    
+  text= '';
+  date = '';
+  newTaskText(event){    
+    this.text=event.target.value; 
+        
   }
+  x(){
+    return 'string'
+  }
+  dateParser(str){
+    //2020/08/15 00:00:00
+    let date = str.split('/')[0];
+    let mouth = str.split('/')[1];
+    let year = str.split('/')[2].split(' ')[0];
+    let hour = str.split('/')[2].split(' ')[1];
+    
+    //2020-08-15T00:00:00
+    return `${year}-${mouth}-${date}T${hour}`
+
+  }
+
+  newTaskDate(event,taskText,checked=0){
+    this.date=event.target.value;
+    if(this.text.length<1){
+      this.text = taskText;
+    }
+    this.newTaskUpdate = new Todo(0,this.text,this.date,checked) 
+    this.valid = true;
+    console.log(this.newTaskUpdate)
+    console.log(this.date);
+  }
+  valid:boolean;
+  
   
   handleInputToggle(id,close=false){
     
