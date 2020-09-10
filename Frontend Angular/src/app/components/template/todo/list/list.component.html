@@ -17,7 +17,7 @@
                 <div class="subtitle">
                     <div *ngIf="item.showUpdateInputs">
                        
-                        <input type="text" maxlength="20" [value]="item.tarefa" (keyup)="newTaskText($event)"><br/>                        
+                        <input type="text" maxlength="20" [value]="item.tarefa" (keyup)="newTaskText($event,item.dataUtc,item.checked)"><br/>                        
                         <input type="datetime-local" step="1" maxlength="20" [(value)]="item.dataUtc" (change)="newTaskDate($event,item.tarefa,item.checked)"><br/>
                         
                     </div> 

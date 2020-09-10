@@ -47,8 +47,12 @@ export class ListComponent implements OnInit{
 
   text= '';
   date = '';
-  newTaskText(event){    
-    this.text=event.target.value; 
+  newTaskText(event,dateP,checked){ 
+    this.text=event.target.value;
+    if(this.date.length<=1){
+      this.date = dateP
+    }
+    this.newTaskUpdate = new Todo(0,this.text,this.date,checked)
         
   }
   x(){
@@ -71,10 +75,10 @@ export class ListComponent implements OnInit{
     if(this.text.length<1){
       this.text = taskText;
     }
-    this.newTaskUpdate = new Todo(0,this.text,this.date,checked) 
+
+    this.newTaskUpdate = new Todo(0,this.text,this.date,checked)
     this.valid = true;
-    console.log(this.newTaskUpdate)
-    console.log(this.date);
+    
   }
   valid:boolean;
   

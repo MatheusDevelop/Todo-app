@@ -64,7 +64,7 @@ export class AddComponent implements OnInit {
     if(!this.hideButton){
       let tarefa = new Todo(this.idTemp,this.inputNameTask,this.inputDate);
       
-      console.log(this.inputDate);
+      
       
       
       this.service.addToDatabase(tarefa).subscribe(()=>{
